@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Thin.otf") format("opentype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-ThinItalic.otf") format("opentype");
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-LightItalic.otf") format("opentype");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Book.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-BookItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-MediumItalic.otf") format("opentype");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Black.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-BlackItalic.otf") format("opentype");
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Ultra.otf") format("opentype");
+    font-weight: 950;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-UltraItalic.otf") format("opentype");
+    font-weight: 950;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-XLight.otf") format("opentype");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-XLightItalic.otf") format("opentype");
+    font-weight: 200;
+    font-style: italic;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+@theme {
+    --font-gotham: "Gotham", sans-serif;
+    --color-primary: #205A65;
+    --color-primary-dark: #163F47;
+    --color-primary-light: #2D798A;
+    --color-primary-light1: #D1EBF0;
+    --color-primary-light2: #93D0DC;
+    --color-secondary: #FE7F22;
+}
+
+.navItem {
+    @apply relative text-white font-gotham transition-colors duration-200 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:w-0 hover:after:w-full;
+}
+
+.navItem.active {
+    @apply after:w-full after:bg-white;
+}
+
+.projects-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+}
+
+.project-card {
+    scroll-snap-align: start;
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.08),
+        0 10px 12px rgba(0, 0, 0, 0.06);
+}
+
+@layer utilities {
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-410%);
+        }
+    }
+
+    .marquee-track {
+        display: flex;
+        gap: 3rem;
+        animation: marquee 100s linear infinite;
+        flex-shrink: 0;
+    }
+
+    .marquee-container {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .marquee-container:hover .marquee-track {
+        animation-play-state: paused;
+    }
+}
