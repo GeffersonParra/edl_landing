@@ -15,7 +15,7 @@ import { GiLaurels } from "react-icons/gi";
 import { LiaCertificateSolid } from "react-icons/lia";
 
 gsap.registerPlugin(ScrollTrigger)
-
+// Este es mi aporte
 export const Home = () => {
     const titleRef = useRef(null)
     const textRef = useRef(null)
